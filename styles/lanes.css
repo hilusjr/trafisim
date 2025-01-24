@@ -1,0 +1,57 @@
+.lane-horizontal {
+  position: absolute;
+  display: flex;
+  z-index: 1;
+}
+
+.lane-vertical {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.lanes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.lane1 {
+  top: 300px;
+  left: 100px;
+}
+
+.lane2 {
+  top: 325px;
+  left: 100px;
+}
+
+.lane3 {
+  top: 375px;
+  left: 0;
+}
+
+.lane4 {
+  top: 400px;
+  left: 0;
+}
+
+.lane5 {
+  top: 450px;
+  left: 100px;
+}
+
+.lane6 {
+  top: 475px;
+  left: 100px;
+}
+
+.lane7 {
+  top: 0;
+  left: 650px;
+}
+
+.lane8 {
+  top: 0;
+  left: 675px;
+}

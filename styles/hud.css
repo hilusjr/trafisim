@@ -1,0 +1,161 @@
+.hud {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+}
+
+.hud-button {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+  font-size: 20px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 20px -1px rgba(0, 0, 0, 1);
+  z-index: 100;
+}
+
+.add-we-car-lights {
+  top: 462.5px;
+  left: 612.5px;
+}
+
+.add-ew-car-lights {
+  top: 312.5px;
+  left: 712.5px;
+}
+
+.add-sn-car-lights {
+  top: 262.5px;
+  left: 662.5px;
+}
+
+.add-ns-car-lights {
+  top: 512.5px;
+  left: 662.5px;
+}
+
+.car-lights-1 {
+  position: absolute;
+  width: 4px;
+  height: 52.5px;
+  background-image: url(../img/car-lights-1.webp);
+}
+
+.car-lights-2 {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-image: url(../img/car-lights-2.webp);
+}
+
+.we-tram-lights {
+  transform: rotate(-90deg);
+  width: 5px;
+  height: 5px;
+  top: 427px;
+  left: 605px;
+  background-image: url(../img/car-lights-2.webp);
+}
+
+.ew-tram-lights {
+  transform: rotate(90deg);
+  width: 5px;
+  height: 5px;
+  top: 367px;
+  left: 740px;
+  background-image: url(../img/car-lights-2.webp);
+}
+
+.we-car-lights {
+  top: 455px;
+  left: 645px;
+}
+
+.ew-car-lights {
+  transform: rotate(180deg);
+  top: 295px;
+  left: 702px;
+}
+
+.sn-car-lights {
+  top: 255px;
+  left: 640px;
+}
+
+.ns-car-lights {
+  transform: rotate(180deg);
+  top: 545px;
+  left: 702px;
+}
+
+/* -------------- LIGHTS INDICATORS --------------- */
+.hud-container {
+  position: absolute;
+  left: 150px;
+  top: 50px;
+  width: 1050px;
+  height: 700px;
+}
+
+.lights-hud {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.lights-indicator {
+  position: absolute;
+  aspect-ratio: 1 /2.8;
+  width: 12.5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.we-car-indicator {
+  left: 620px;
+  top: 458px;
+  background-image: url(/img/red-light-icon.svg);
+}
+
+.ew-car-indicator {
+  left: 720px;
+  top: 310px;
+  background-image: url(/img/red-light-icon.svg);
+}
+
+.sn-car-indicator {
+  left: 657px;
+  top: 260px;
+  background-image: url(/img/red-light-icon.svg);
+}
+
+.ns-car-indicator {
+  left: 683px;
+  top: 505px;
+  background-image: url(/img/red-light-icon.svg);
+}
+
+.we-tram-indicator {
+  left: 620px;
+  top: 395px;
+  background-image: url(/img/red-tram-light.svg);
+  background-size: contain;
+}
+
+.ew-tram-indicator {
+  left: 720px;
+  top: 370px;
+  background-image: url(/img/red-tram-light.svg);
+  background-size: contain;
+}
