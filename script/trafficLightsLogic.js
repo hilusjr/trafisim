@@ -133,7 +133,6 @@ function setTrafficLightsTiming() {
   }
   createTrafficLights()
   console.log(snNsTime.red, snNsTime.green, snNsTime.delay)
-  //   console.log(weEwTime.green, weEwTime.red, weEwTime.delay)
 }
 
 function removeTrafficLights() {
@@ -165,12 +164,19 @@ function validateTiming() {
   if (redInput.value < 5) {
     alertSpan.textContent = 'Red light timing must be greater or equal to 5!'
     lightsSettings.appendChild(alertSpan)
+    redInput.value = weEwTime.red / 1000
     isValidated = false
   }
   if (redInput.value < greenInput.value) {
     alertSpan.textContent =
       'Red light timing must be greater or equal to green light!'
     lightsSettings.appendChild(alertSpan)
-    return
+    isValidated = false
+  }
+  if (greenInput.value < 1) {
+    alertSpan.textContent = 'Green light timing cannot be less than 1 second!'
+    lightsSettings.appendChild(alertSpan)
+    greenInput.value = weEwTime.green / 1000
+    isValidated = false
   }
 }

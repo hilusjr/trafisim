@@ -30,22 +30,10 @@ document.addEventListener('keydown', event => {
   }
 })
 
-let viewportMeta = document.querySelector('meta[name="viewport"]')
-
-if (!viewportMeta) {
-  viewportMeta = document.createElement('meta')
-  viewportMeta.name = 'viewport'
-  document.head.appendChild(viewportMeta)
-}
-
-if (window.innerWidth <= 1920)
-  viewportMeta.content =
-    'width=device-width, initial-scale=0.67, maximum-scale=0.67, user-scalable=no'
-
 window.addEventListener('load', () => {
   createBoard()
   setTramStops()
-  setInterval(createVehicle, 500)
+  setInterval(createVehicle, 1000)
 })
 
 function createVehicle() {
