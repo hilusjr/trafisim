@@ -32,7 +32,7 @@ class Vehicle {
     const carId = Math.floor(Math.random() * 13) + 1
     const imageElement = document.createElement('img')
     imageElement.src =
-      this.type === 'tram' ? '/img/tram.webp' : `/img/car${carId}.webp`
+      this.type === 'tram' ? 'img/tram.webp' : `img/car${carId}.webp`
     if (this.type === 'tram')
       imageElement.style.transform = 'translate(-93%, -50%)'
     this.element.appendChild(imageElement)
