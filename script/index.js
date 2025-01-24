@@ -24,6 +24,12 @@ const routes = [
   routeCarSE(),
 ]
 
+document.addEventListener('keydown', event => {
+  if (event.key === 'F11') {
+    window.location.reload()
+  }
+})
+
 window.addEventListener('load', () => {
   createBoard()
   setTramStops()
