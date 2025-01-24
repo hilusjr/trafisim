@@ -3,6 +3,7 @@
 }
 
 body {
+  position: relative;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -10,6 +11,17 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgb(0, 12, 34);
+}
+
+.info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+  color: rgb(141, 141, 141);
+  z-index: 1001;
+  padding: 1rem;
 }
 
 .container {
@@ -50,7 +62,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* .free {
+.free {
   background-color: rgba(0, 114, 34, 0.493);
 }
 
@@ -60,7 +72,7 @@ body {
 
 .occupied {
   background-color: rgba(165, 38, 0, 0.445);
-} */
+}
 
 .vehicle {
   position: absolute;
