@@ -83,43 +83,44 @@ class Vehicle {
       nextTile,
     ] = this.getTiles(-6, 1)
 
-    const getState = (tile, fallbackState) =>
-      tile?.stateSource === 'lights' && tile?.state === 'occupied'
-        ? 'lights'
-        : fallbackState
-
-    // Update twoBehind
     twoBehind?.setState(
-      getState(twoBehind, 'vehicle') === 'lights' ? 'occupied' : 'free',
-      getState(twoBehind, 'vehicle')
+      twoBehind?.stateSource === 'lights' && twoBehind?.state === 'occupied'
+        ? 'occupied'
+        : 'free',
+      twoBehind?.stateSource === 'lights' && twoBehind?.state === 'occupied'
+        ? 'lights'
+        : 'vehicle'
     )
 
-    // Handle tram-specific logic
     if (this.type === 'tram') {
-      const isTramStop = index =>
-        index === tramStopEW.index || index === tramStopWE.index
-
-      sixBehind?.setState(
-        isTramStop(sixBehind?.index) ? 'occupied' : 'free',
-        'vehicle'
-      )
-
-      // Mark tiles fiveBehind to twoBehind as occupied
-      ;[fiveBehind, fourBehind, threeBehind, twoBehind].forEach(tile =>
-        tile?.setState('occupied', 'vehicle')
-      )
-
-      if (isTramStop(nextTile?.index)) {
+      if (
+        sixBehind?.index !== tramStopEW.index &&
+        sixBehind?.index !== tramStopWE.index
+      ) {
+        sixBehind?.setState('free', 'vehicle')
+      } else {
+        sixBehind?.setState('occupied', 'vehicle')
+      }
+      fiveBehind?.setState('occupied', 'vehicle')
+      fourBehind?.setState('occupied', 'vehicle')
+      threeBehind?.setState('occupied', 'vehicle')
+      twoBehind?.setState('occupied', 'vehicle')
+      if (
+        nextTile?.index === tramStopWE.index ||
+        nextTile?.index === tramStopEW.index
+      ) {
         setTimeout(() => this.freeTheStop(nextTile.index), 3000)
       }
     }
-
-    // Update oneBehind, currentTile, and nextTile
-    oneBehind?.setState('occupied', getState(oneBehind, 'vehicle'))
+    oneBehind?.setState(
+      'occupied',
+      oneBehind?.stateSource === 'lights' && oneBehind?.state === 'occupied'
+        ? 'lights'
+        : 'vehicle'
+    )
     currentTile?.setState('occupied', 'vehicle')
-    if (nextTile?.state !== 'occupied') {
-      nextTile?.setState('awaiting', 'vehicle')
-    }
+    if (nextTile?.state === 'occupied') return
+    nextTile?.setState('awaiting', 'vehicle')
   }
 
   handleMovement() {
