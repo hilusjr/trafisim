@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
   createBoard()
   setTramStops()
   // setTimeout(createVehicle, 500)
-  // setInterval(createVehicle, 1000)
+  setInterval(createVehicle, 1000)
 })
 
 function createVehicle() {
