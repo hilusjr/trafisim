@@ -1,7 +1,9 @@
 const redInput = document.querySelector('.red-input')
 const greenInput = document.querySelector('.green-input')
 const lightsSettings = document.querySelector('.lights-settings')
+const alertSpan = document.createElement('span')
 
+let isValidated = true
 let isRemoved = true
 let trafficLights = []
 let trafficLightIntervals = []
@@ -113,6 +115,10 @@ function synchronizeLights(trafficLights) {
 }
 
 function setTrafficLightsTiming() {
+  isValidated = true
+  validateTiming()
+  if (!isValidated) return
+  alertSpan.remove()
   removeTrafficLights()
   isRemoved = false
   weEwTime = {
@@ -152,4 +158,19 @@ function removeTrafficLights() {
   console.log('Traffic lights removed and tiles reset.')
   hud.style.display = 'none'
   lightsSettings.style.display = 'none'
+}
+
+function validateTiming() {
+  alertSpan.style.color = 'red'
+  if (redInput.value < 5) {
+    alertSpan.textContent = 'Red light timing must be greater or equal to 5!'
+    lightsSettings.appendChild(alertSpan)
+    isValidated = false
+  }
+  if (redInput.value < greenInput.value) {
+    alertSpan.textContent =
+      'Red light timing must be greater or equal to green light!'
+    lightsSettings.appendChild(alertSpan)
+    return
+  }
 }
