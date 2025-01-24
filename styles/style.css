@@ -50,7 +50,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.free {
+/* .free {
   background-color: rgba(0, 114, 34, 0.493);
 }
 
@@ -60,7 +60,7 @@ body {
 
 .occupied {
   background-color: rgba(165, 38, 0, 0.445);
-}
+} */
 
 .vehicle {
   position: absolute;
