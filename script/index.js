@@ -1,6 +1,9 @@
 const container = document.querySelector('.container')
 const vehicles = document.querySelector('.vehicles')
+const unprettyButton = document.querySelector('.unpretty-button')
+const covers = document.querySelector('.covers')
 
+let isPretty = true
 let tramStopWE = null
 let tramStopEW = null
 
@@ -54,3 +57,48 @@ function setTramStops() {
   tramStopWE.setState('occupied', 'vehicle')
   tramStopEW.setState('occupied', 'vehicle')
 }
+
+unprettyButton.addEventListener('click', () => {
+  const styleSheet = document.styleSheets[0] // Get the first stylesheet
+
+  if (isPretty) {
+    document.body.style.backgroundColor = 'white'
+    covers.style.display = 'none'
+    container.style.backgroundImage = 'none'
+    styleSheet.insertRule(
+      '.free { background-color: rgba(0, 114, 34, 0.74); }',
+      styleSheet.cssRules.length
+    )
+    styleSheet.insertRule(
+      '.awaiting { background-color: rgba(165, 126, 0, 0.77); }',
+      styleSheet.cssRules.length
+    )
+    styleSheet.insertRule(
+      '.occupied { background-color: rgba(165, 38, 0, 0.78); }',
+      styleSheet.cssRules.length
+    )
+    styleSheet.insertRule(
+      '.tile { border: 1px solid rgb(104, 104, 104); }',
+      styleSheet.cssRules.length
+    )
+    tiles.forEach(tile => (tile.element.textContent = tile.index))
+  } else {
+    covers.style.display = 'block'
+    container.style.backgroundImage = 'url(../img/bg.webp)'
+    document.body.style.backgroundColor = 'rgb(0, 12, 34)'
+    tiles.forEach(tile => (tile.element.textContent = ''))
+    for (let i = styleSheet.cssRules.length - 1; i >= 0; i--) {
+      const rule = styleSheet.cssRules[i]
+      if (
+        rule.selectorText === '.free' ||
+        rule.selectorText === '.awaiting' ||
+        rule.selectorText === '.occupied' ||
+        rule.selectorText === '.tile' // Include the last rule for deletion
+      ) {
+        styleSheet.deleteRule(i)
+      }
+    }
+  }
+
+  isPretty = !isPretty // Toggle state
+})

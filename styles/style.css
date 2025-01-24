@@ -25,6 +25,24 @@ body {
   padding: 1rem;
 }
 
+.unpretty-button {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-weight: 700;
+  color: white;
+  background-color: rgb(31, 47, 77);
+  text-transform: uppercase;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.unpretty-button:hover {
+  color: rgb(31, 47, 77);
+  background-color: white;
+}
+
 .container {
   position: relative;
   width: 1350px;
@@ -56,24 +74,11 @@ body {
   box-sizing: border-box;
   width: 25px;
   height: 25px;
-  /* border: 1px solid rgb(0, 62, 143); */
   color: rgb(180, 180, 180);
   font-size: 12px;
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 1);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* .free {
-  background-color: rgba(0, 114, 34, 0.493);
-}
-
-.awaiting {
-  background-color: rgba(165, 126, 0, 0.514);
-}
-
-.occupied {
-  background-color: rgba(165, 38, 0, 0.445);
-} */
 
 .vehicle {
   position: absolute;

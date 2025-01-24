@@ -5,7 +5,7 @@ class Tile {
     this.stateSource = 'vehicle'
     this.element = document.createElement('div')
     this.element.classList.add('tile')
-    // this.element.textContent = index
+    this.element.textContent = ''
     this.element.setAttribute('id', `tile${index}`)
 
     this.updateState()
