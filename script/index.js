@@ -30,29 +30,33 @@ document.addEventListener('keydown', event => {
   }
 })
 
+let viewportMeta = document.querySelector('meta[name="viewport"]')
+
+if (!viewportMeta) {
+  viewportMeta = document.createElement('meta')
+  viewportMeta.name = 'viewport'
+  document.head.appendChild(viewportMeta)
+}
+
+if (window.innerWidth <= 1920)
+  viewportMeta.content =
+    'width=device-width, initial-scale=0.67, maximum-scale=0.67, user-scalable=no'
+
 window.addEventListener('load', () => {
   createBoard()
   setTramStops()
-  // setTimeout(createVehicle, 500)
-  setInterval(createVehicle, 1000)
+  setInterval(createVehicle, 500)
 })
 
 function createVehicle() {
   const vehicleType = Math.random() < 0.95 ? vehicleTypes[0] : vehicleTypes[1]
-  // console.log(vehicleType)
+
   const vehicleRoute =
     vehicleType == 'tram'
       ? tramRoutes[Math.floor(Math.random() * tramRoutes.length)]
       : routes[Math.floor(Math.random() * routes.length)]
-  // console.log(vehicleRoute)
 
-  const vehicle = new Vehicle(vehicleType, vehicleRoute)
-
-  // const stopButton = document.getElementById('stopButton')
-  // stopButton.addEventListener('click', () => vehicle.stopMoving())
-
-  // const unButton = document.getElementById('unButton')
-  // unButton.addEventListener('click', () => tile273.setState('free'))
+  new Vehicle(vehicleType, vehicleRoute)
 }
 
 function setTramStops() {
