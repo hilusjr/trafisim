@@ -2,11 +2,14 @@ const container = document.querySelector('.container')
 const vehicles = document.querySelector('.vehicles')
 const unprettyButton = document.querySelector('.unpretty-button')
 const covers = document.querySelector('.covers')
+const welcomeScreen = document.querySelector('.welcome-screen')
+const understandButton = document.querySelector('.understand-button')
 
 let isPretty = true
 let tramStopWE = null
 let tramStopEW = null
 
+const isWelcomed = localStorage.getItem('isWelcomed')
 const tiles = []
 const vehicleTypes = ['car', 'tram']
 const tramRoutes = [routeTramWE(), routeTramEW()]
@@ -26,6 +29,13 @@ const routes = [
   routeCarSW(),
   routeCarSE(),
 ]
+
+if (isWelcomed) welcomeScreen.remove()
+
+understandButton.addEventListener('click', () => {
+  welcomeScreen.remove()
+  localStorage.setItem('isWelcomed', true)
+})
 
 document.addEventListener('keydown', event => {
   if (event.key === 'F11') {
