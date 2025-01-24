@@ -78,7 +78,7 @@
   aspect-ratio: 5 / 3;
   border-radius: 0.5rem;
   overflow: hidden;
-  background-image: url(/img/placeholder.png);
+  background-image: url(../img/placeholder.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
