@@ -17,18 +17,18 @@ function changeIndicators(group, state) {
   if (group === 'we-ew') {
     weEwIndicators.forEach(
       element =>
-        (element.style.backgroundImage = `url(../img/${state}-light-icon.svg`)
+        (element.style.backgroundImage = `url(img/${state}-light-icon.svg`)
     )
     tramIndicators.forEach(
       element =>
-        (element.style.backgroundImage = `url(../img/${state}-tram-light.svg`)
+        (element.style.backgroundImage = `url(img/${state}-tram-light.svg`)
     )
   }
 
   if (group === 'sn-ns') {
     snNsIndicators.forEach(
       element =>
-        (element.style.backgroundImage = `url(../img/${state}-light-icon.svg`)
+        (element.style.backgroundImage = `url(img/${state}-light-icon.svg`)
     )
   }
 }
