@@ -105,7 +105,7 @@ unprettyButton.addEventListener('click', () => {
     tiles.forEach(tile => (tile.element.textContent = tile.index))
   } else {
     covers.style.display = 'block'
-    container.style.backgroundImage = 'url(../img/bg.webp)'
+    container.style.backgroundImage = 'url(img/bg.webp)'
     document.body.style.backgroundColor = 'rgb(0, 12, 34)'
     tiles.forEach(tile => (tile.element.textContent = ''))
     for (let i = styleSheet.cssRules.length - 1; i >= 0; i--) {
