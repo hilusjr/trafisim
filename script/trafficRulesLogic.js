@@ -26,19 +26,19 @@ switchButton.addEventListener('click', () => {
     subRoadSign.src = './img/giveway-sign.svg'
 
     mainRoadSigns.forEach(element => {
-      element.style.backgroundImage = 'url(img/priority-sign.svg)'
+      element.style.backgroundImage = 'url(../img/priority-sign.svg)'
     })
     subRoadSigns.forEach(element => {
-      element.style.backgroundImage = 'url(img/giveway-sign.svg)'
+      element.style.backgroundImage = 'url(../img/giveway-sign.svg)'
     })
   } else {
     mainRoadSign.src = './img/giveway-sign.svg'
     subRoadSign.src = './img/priority-sign.svg'
     mainRoadSigns.forEach(element => {
-      element.style.backgroundImage = 'url(img/giveway-sign.svg)'
+      element.style.backgroundImage = 'url(../img/giveway-sign.svg)'
     })
     subRoadSigns.forEach(element => {
-      element.style.backgroundImage = 'url(img/priority-sign.svg)'
+      element.style.backgroundImage = 'url(../img/priority-sign.svg)'
     })
   }
 

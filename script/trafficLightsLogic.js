@@ -50,6 +50,7 @@ function createTrafficLights() {
 
   synchronizeLights(trafficLights)
 
+  selected.push('traffic-lights')
   addSelectionContainer.style.display = 'none'
   hud.style.display = 'block'
   lightsSettings.style.display = 'flex'

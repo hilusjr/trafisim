@@ -125,38 +125,38 @@
 .we-car-indicator {
   left: 620px;
   top: 458px;
-  background-image: url(/img/red-light-icon.svg);
+  background-image: url(../img/red-light-icon.svg);
 }
 
 .ew-car-indicator {
   left: 720px;
   top: 310px;
-  background-image: url(/img/red-light-icon.svg);
+  background-image: url(../img/red-light-icon.svg);
 }
 
 .sn-car-indicator {
   left: 657px;
   top: 260px;
-  background-image: url(/img/red-light-icon.svg);
+  background-image: url(../img/red-light-icon.svg);
 }
 
 .ns-car-indicator {
   left: 683px;
   top: 505px;
-  background-image: url(/img/red-light-icon.svg);
+  background-image: url(../img/red-light-icon.svg);
 }
 
 .we-tram-indicator {
   left: 620px;
   top: 395px;
-  background-image: url(/img/red-tram-light.svg);
+  background-image: url(../img/red-tram-light.svg);
   background-size: contain;
 }
 
 .ew-tram-indicator {
   left: 720px;
   top: 370px;
-  background-image: url(/img/red-tram-light.svg);
+  background-image: url(../img/red-tram-light.svg);
   background-size: contain;
 }
 
@@ -180,35 +180,35 @@
 .we-car-sign {
   left: 560px;
   top: 458px;
-  background-image: url(/img/priority-sign.svg);
+  background-image: url(../img/priority-sign.svg);
 }
 
 .ew-car-sign {
   left: 750px;
   top: 305px;
-  background-image: url(/img/priority-sign.svg);
+  background-image: url(../img/priority-sign.svg);
 }
 
 .sn-car-sign {
   left: 645px;
   top: 210px;
-  background-image: url(/img/giveway-sign.svg);
+  background-image: url(../img/giveway-sign.svg);
 }
 
 .ns-car-sign {
   left: 668px;
   top: 550px;
-  background-image: url(/img/giveway-sign.svg);
+  background-image: url(../img/giveway-sign.svg);
 }
 
 .we-tram-sign {
   left: 560px;
   top: 395px;
-  background-image: url(/img/priority-sign.svg);
+  background-image: url(../img/priority-sign.svg);
 }
 
 .ew-tram-sign {
   left: 750px;
   top: 370px;
-  background-image: url(/img/priority-sign.svg);
+  background-image: url(../img/priority-sign.svg);
 }
