@@ -7,6 +7,7 @@ const mainRoadSigns = document.querySelectorAll('.we-ew-sign, .tram-sign')
 const subRoadSigns = document.querySelectorAll('.sn-ns-sign')
 const removeRulesButton = document.querySelector('.remove-rules-button')
 
+let isPaused = false
 let trafficRulesApplied = false
 let trafficRulesSwitched = false
 
@@ -18,9 +19,12 @@ trafficRulesSelection.addEventListener('click', () => {
 })
 
 switchButton.addEventListener('click', () => {
-  console.log(mainRoadSign, subRoadSign)
-  console.log('Before update:', mainRoadSign.src, subRoadSign.src)
-
+  if (isPaused) {
+    alertSpan.textContent = 'Please wait at least 10 seconds'
+    rulesSettings.appendChild(alertSpan)
+    setTimeout(() => alertSpan.remove(), 3000)
+    return
+  }
   if (trafficRulesSwitched) {
     mainRoadSign.src = './img/priority-sign.svg'
     subRoadSign.src = './img/giveway-sign.svg'
@@ -41,7 +45,10 @@ switchButton.addEventListener('click', () => {
       element.style.backgroundImage = 'url(./img/priority-sign.svg)'
     })
   }
-
+  isPaused = true
+  setTimeout(() => {
+    isPaused = false
+  }, 10000)
   trafficRulesSwitched = !trafficRulesSwitched
 })
 

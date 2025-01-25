@@ -5,6 +5,7 @@ const redInput = document.querySelector('.red-input')
 const greenInput = document.querySelector('.green-input')
 const lightsSettings = document.querySelector('.lights-settings')
 const alertSpan = document.createElement('span')
+alertSpan.style.color = 'red'
 
 let isValidated = true
 let isRemoved = true
@@ -169,7 +170,6 @@ function removeTrafficLights() {
 }
 
 function validateTiming() {
-  alertSpan.style.color = 'red'
   if (redInput.value < 5) {
     alertSpan.textContent = 'Red light timing must be greater or equal to 5!'
     lightsSettings.appendChild(alertSpan)
