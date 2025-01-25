@@ -21,9 +21,7 @@ switchButton.addEventListener('click', () => {
   console.log(mainRoadSign, subRoadSign)
   console.log('Before update:', mainRoadSign.src, subRoadSign.src)
 
-  // Update the signs based on the current state
   if (trafficRulesSwitched) {
-    // Current state is switched, revert to default
     mainRoadSign.src = './img/priority-sign.svg'
     subRoadSign.src = './img/giveway-sign.svg'
 
@@ -34,7 +32,6 @@ switchButton.addEventListener('click', () => {
       element.style.backgroundImage = 'url(/img/giveway-sign.svg)'
     })
   } else {
-    // Current state is default, switch to new
     mainRoadSign.src = './img/giveway-sign.svg'
     subRoadSign.src = './img/priority-sign.svg'
     mainRoadSigns.forEach(element => {
@@ -47,7 +44,6 @@ switchButton.addEventListener('click', () => {
 
   console.log('After update:', mainRoadSign.src, subRoadSign.src)
 
-  // Toggle the state at the end
   trafficRulesSwitched = !trafficRulesSwitched
 })
 
