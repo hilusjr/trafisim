@@ -160,19 +160,20 @@
   font-size: 1.2rem;
 }
 
-.timings-container {
+.subsettings-container {
   display: flex;
   justify-content: space-around;
 }
 
-.light-icon {
+.settings-icon {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
-.light-icon img {
+.settings-icon img {
   height: 4rem;
+  border-radius: 0.2rem;
 }
 
 .light-time-input {

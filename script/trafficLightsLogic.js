@@ -1,3 +1,6 @@
+const trafficLightsSelection = document.querySelector(
+  '.traffic-lights-selection'
+)
 const redInput = document.querySelector('.red-input')
 const greenInput = document.querySelector('.green-input')
 const lightsSettings = document.querySelector('.lights-settings')
@@ -20,6 +23,12 @@ let snNsTime = {
   red: weEwTime.green + weEwTime.delay,
   delay: weEwTime.delay,
 }
+
+trafficLightsSelection.addEventListener('click', () => {
+  createSettingsCard()
+  createTrafficLights()
+  selected.push('traffic-lights')
+})
 
 function createSettingsCard() {
   redInput.value = weEwTime.red / 1000
@@ -119,8 +128,7 @@ function setTrafficLightsTiming() {
   validateTiming()
   if (!isValidated) return
   alertSpan.remove()
-  removeTrafficLights()
-  isRemoved = false
+
   weEwTime = {
     green: greenInput.value * 1000,
     red: redInput.value * 1000,
@@ -155,7 +163,7 @@ function removeTrafficLights() {
 
   trafficLights = []
   console.log('Traffic lights removed and tiles reset.')
-  hud.style.display = 'none'
+  selected = selected.filter(str => str !== 'traffic-lights')
   lightsSettings.style.display = 'none'
 }
 

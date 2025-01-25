@@ -28,8 +28,8 @@
     <script src="script/trafficLightsLogic.js" defer></script>
     <script src="script/trafficRulesLogic.js" defer></script>
     <script src="script/TrafficLight.js" defer></script>
-    <script src="script/panel.js" defer></script>
     <script src="script/hud.js" defer></script>
+    <script src="script/panel.js" defer></script>
     <script src="script/Vehicle.js" defer></script>
     <script src="script/Routes.js" defer></script>
     <script src="script/Tile.js" defer></script>
@@ -73,11 +73,6 @@
         >Project written in less than 7 days, it didn't have to be clean and
         responsive for what it was meant to be.
       </span>
-      <span>Resizing window will result in uncorrect vehicle behavior.</span>
-      <span
-        >If you notice vehicles driving not on the path, press F5 to
-        reload.</span
-      >
     </div>
     <div class="unpretty-button">graphics / raw</div>
     <div class="container">
@@ -102,6 +97,14 @@
           <div class="lights-indicator we-tram-indicator tram-indicator"></div>
           <div class="lights-indicator ew-tram-indicator tram-indicator"></div>
         </div>
+        <div class="rules-hud">
+          <div class="rules-sign we-car-sign we-ew-sign"></div>
+          <div class="rules-sign ew-car-sign we-ew-sign"></div>
+          <div class="rules-sign sn-car-sign sn-ns-sign"></div>
+          <div class="rules-sign ns-car-sign sn-ns-sign"></div>
+          <div class="rules-sign we-tram-sign tram-sign"></div>
+          <div class="rules-sign ew-tram-sign tram-sign"></div>
+        </div>
       </div>
 
       <div class="covers">
@@ -117,7 +120,16 @@
       <div class="close-panel"><i class="bx bx-x"></i></div>
       <span>Settings panel</span>
       <div class="add-button">ADD</div>
-      <span style="color: white">Only traffic lights work at this moment</span>
+      <span style="color: white; font-size: 1.2rem"></span>
+      <span style="color: white; font-size: 1.2rem"
+        >Only traffic lights work at this moment</span
+      >
+      <span style="color: white; font-size: 1.2rem"
+        >Traffic rules semi-working, probably not gonna do much more</span
+      >
+      <span style="color: white; font-size: 1.2rem"
+        >Yes, they can be combined</span
+      >
 
       <div class="settings-container lights-settings">
         <span class="settings-title"> Traffic lights</span>
@@ -130,13 +142,13 @@
           lights changing.</span
         >
         <span class="settings-subtitle"> Set the timing</span>
-        <div class="timings-container">
-          <div class="light-icon">
+        <div class="timings-container subsettings-container">
+          <div class="light-icon settings-icon">
             <img src="./img/red-light-icon.svg" />
             <input class="light-time-input red-input" type="number" />
             <span>s</span>
           </div>
-          <div class="light-icon">
+          <div class="light-icon settings-icon">
             <img src="./img/green-light-icon.svg" />
             <input class="light-time-input green-input" type="number" />
             <span>s</span>
@@ -149,6 +161,35 @@
         >
         <div class="set-timing-button settings-button">set the timing</div>
         <div class="remove-lights-button settings-button">remove lights</div>
+      </div>
+
+      <div class="settings-container rules-settings">
+        <span class="settings-title"> Traffic rules</span>
+        <span class="settings-description"
+          >A simple set of rules causing vehicles to behave more realistically
+          thanks to setting priotrity and give way roads.</span
+        >
+        <span class="settings-description"
+          >Hover mouse over intersection to show visual indicators of set
+          traffic rules.</span
+        >
+        <span class="settings-subtitle"> Set the rules</span>
+        <div class="rules-container subsettings-container">
+          <div class="sign-icon settings-icon">
+            <img src="./img/main-road.webp" />
+            <img class="main-road-sign" src="./img/priority-sign.svg" />
+          </div>
+          <div class="sign-icon settings-icon">
+            <img src="./img/subroad.webp" />
+            <img class="sub-road-sign" src="./img/giveway-sign.svg" />
+          </div>
+        </div>
+        <span class="settings-description"
+          >Switching will result in swapt priority and give way rules of the
+          roads.</span
+        >
+        <div class="switch-rules-button settings-button">switch</div>
+        <div class="remove-rules-button settings-button">remove rules</div>
       </div>
     </div>
 

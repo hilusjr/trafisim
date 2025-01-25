@@ -1,7 +1,8 @@
 class Vehicle {
-  constructor(type, route) {
+  constructor(type, route, priority) {
     this.type = type
     this.route = route
+    this.priority = priority
     this.state = ''
     this.position = { x: null, y: null }
     this.currentTileIndex = 0
@@ -81,26 +82,18 @@ class Vehicle {
       oneBehind,
       currentTile,
       nextTile,
-    ] = this.getTiles(-6, 1)
-
-    twoBehind?.setState(
-      twoBehind?.stateSource === 'lights' && twoBehind?.state === 'occupied'
-        ? 'occupied'
-        : 'free',
-      twoBehind?.stateSource === 'lights' && twoBehind?.state === 'occupied'
-        ? 'lights'
-        : 'vehicle'
-    )
+      twoAhead,
+      threeAhead,
+    ] = this.getTiles(-6, 3)
 
     if (this.type === 'tram') {
-      if (
+      sixBehind?.setState(
         sixBehind?.index !== tramStopEW.index &&
-        sixBehind?.index !== tramStopWE.index
-      ) {
-        sixBehind?.setState('free', 'vehicle')
-      } else {
-        sixBehind?.setState('occupied', 'vehicle')
-      }
+          sixBehind?.index !== tramStopWE.index
+          ? 'free'
+          : 'occupied',
+        'vehicle'
+      )
       fiveBehind?.setState('occupied', 'vehicle')
       fourBehind?.setState('occupied', 'vehicle')
       threeBehind?.setState('occupied', 'vehicle')
@@ -112,6 +105,18 @@ class Vehicle {
         setTimeout(() => this.freeTheStop(nextTile.index), 3000)
       }
     }
+
+    if (this.type === 'car') {
+      twoBehind?.setState(
+        twoBehind?.stateSource === 'lights' && twoBehind?.state === 'occupied'
+          ? 'occupied'
+          : 'free',
+        twoBehind?.stateSource === 'lights' && twoBehind?.state === 'occupied'
+          ? 'lights'
+          : 'vehicle'
+      )
+    }
+
     oneBehind?.setState(
       'occupied',
       oneBehind?.stateSource === 'lights' && oneBehind?.state === 'occupied'
@@ -119,8 +124,16 @@ class Vehicle {
         : 'vehicle'
     )
     currentTile?.setState('occupied', 'vehicle')
+
     if (nextTile?.state === 'occupied') return
-    nextTile?.setState('awaiting', 'vehicle')
+
+    if (this.priority && trafficRulesApplied) {
+      nextTile?.setState('awaiting', 'vehicle')
+      if (twoAhead?.state !== 'occupied')
+        twoAhead?.setState('awaiting', 'vehicle')
+      if (threeAhead?.state !== 'occupied')
+        threeAhead?.setState('awaiting', 'vehicle')
+    }
   }
 
   handleMovement() {
@@ -130,11 +143,21 @@ class Vehicle {
         return
       }
 
+      // THIS IS WHAT MAKES VEHICLE STOP
       const nextTile = tiles[this.route[this.currentTileIndex + 1]]
+      const twoAhead = tiles[this.route[this.currentTileIndex + 2]]
       if (nextTile?.state === 'occupied') {
         this.state = 'stopped'
         return
       }
+      if (
+        (nextTile?.state === 'awaiting' || twoAhead?.state === 'awaiting') &&
+        !this.priority
+      ) {
+        this.state = 'stopped'
+        return
+      }
+
       if (this.currentTileIndex < this.route.length) {
         this.handleAnimation()
       }

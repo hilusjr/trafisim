@@ -6,8 +6,10 @@ const welcomeScreen = document.querySelector('.welcome-screen')
 const understandButton = document.querySelector('.understand-button')
 
 let isPretty = true
+let resizeTimeout
 let tramStopWE = null
 let tramStopEW = null
+let isPriority = trafficRulesSwitched
 
 const isWelcomed = localStorage.getItem('isWelcomed')
 const tiles = []
@@ -16,10 +18,10 @@ const tramRoutes = [routeTramWE(), routeTramEW()]
 const routes = [
   routeCarWE1(),
   routeCarWE2(),
-  routeCarWN(),
-  routeCarWS(),
   routeCarEW1(),
   routeCarEW2(),
+  routeCarWN(),
+  routeCarWS(),
   routeCarEN(),
   routeCarES(),
   routeCarNS(),
@@ -37,27 +39,36 @@ understandButton.addEventListener('click', () => {
   localStorage.setItem('isWelcomed', true)
 })
 
-document.addEventListener('keydown', event => {
-  if (event.key === 'F11') {
-    window.location.reload()
-  }
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout) // Clear the timeout on each resize event
+  resizeTimeout = setTimeout(() => {
+    location.reload() // Reloads the page after resizing stops
+  }, 200) // Adjust the delay as needed
 })
 
 window.addEventListener('load', () => {
   createBoard()
   setTramStops()
-  setInterval(createVehicle, 1000)
+  // tiles[346].setState('awaiting')
+  // createVehicle()
+  setInterval(createVehicle, 800)
 })
 
 function createVehicle() {
   const vehicleType = Math.random() < 0.95 ? vehicleTypes[0] : vehicleTypes[1]
 
   const vehicleRoute =
-    vehicleType == 'tram'
+    vehicleType === 'tram'
       ? tramRoutes[Math.floor(Math.random() * tramRoutes.length)]
-      : routes[Math.floor(Math.random() * routes.length)]
+      : Math.random() < 0.4
+      ? routes[Math.floor(Math.random() * 4)]
+      : routes[Math.floor(Math.random() * (routes.length - 4)) + 4]
 
-  new Vehicle(vehicleType, vehicleRoute)
+  if (routes.slice(0, 8).includes(vehicleRoute) || vehicleType === 'tram') {
+    isPriority = !isPriority
+  }
+  new Vehicle(vehicleType, vehicleRoute, isPriority)
+  isPriority = trafficRulesSwitched
 }
 
 function setTramStops() {

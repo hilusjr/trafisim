@@ -1,9 +1,17 @@
 .hud {
-  display: none;
+  display: block;
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 11;
+}
+
+.hud-container {
+  position: absolute;
+  left: 150px;
+  top: 50px;
+  width: 1050px;
+  height: 700px;
 }
 
 .hud-button {
@@ -99,14 +107,6 @@
 }
 
 /* -------------- LIGHTS INDICATORS --------------- */
-.hud-container {
-  position: absolute;
-  left: 150px;
-  top: 50px;
-  width: 1050px;
-  height: 700px;
-}
-
 .lights-hud {
   display: none;
   width: 100%;
@@ -158,4 +158,57 @@
   top: 370px;
   background-image: url(/img/red-tram-light.svg);
   background-size: contain;
+}
+
+/* ------------------ RULES SIGNS ------------------- */
+
+.rules-hud {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.rules-sign {
+  position: absolute;
+  aspect-ratio: 1 / 1;
+  width: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.we-car-sign {
+  left: 560px;
+  top: 458px;
+  background-image: url(/img/priority-sign.svg);
+}
+
+.ew-car-sign {
+  left: 750px;
+  top: 305px;
+  background-image: url(/img/priority-sign.svg);
+}
+
+.sn-car-sign {
+  left: 645px;
+  top: 210px;
+  background-image: url(/img/giveway-sign.svg);
+}
+
+.ns-car-sign {
+  left: 668px;
+  top: 550px;
+  background-image: url(/img/giveway-sign.svg);
+}
+
+.we-tram-sign {
+  left: 560px;
+  top: 395px;
+  background-image: url(/img/priority-sign.svg);
+}
+
+.ew-tram-sign {
+  left: 750px;
+  top: 370px;
+  background-image: url(/img/priority-sign.svg);
 }
