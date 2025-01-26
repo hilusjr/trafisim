@@ -5,6 +5,7 @@ const covers = document.querySelector('.covers')
 const welcomeScreen = document.querySelector('.welcome-screen')
 const understandButton = document.querySelector('.understand-button')
 
+let vehicleInterval
 let isPretty = true
 let resizeTimeout
 let tramStopWE = null
@@ -40,19 +41,22 @@ understandButton.addEventListener('click', () => {
 })
 
 window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout) // Clear the timeout on each resize event
+  clearTimeout(resizeTimeout)
   resizeTimeout = setTimeout(() => {
-    location.reload() // Reloads the page after resizing stops
-  }, 200) // Adjust the delay as needed
+    location.reload()
+  }, 200)
 })
 
 window.addEventListener('load', () => {
   createBoard()
   setTramStops()
-  // tiles[346].setState('awaiting')
-  // createVehicle()
-  setInterval(createVehicle, 800)
+  setVehicleSpawnRate(1000)
 })
+
+function setVehicleSpawnRate(spawnTime) {
+  clearInterval(vehicleInterval) // Clear any existing interval
+  vehicleInterval = setInterval(createVehicle, spawnTime)
+}
 
 function createVehicle() {
   const vehicleType = Math.random() < 0.95 ? vehicleTypes[0] : vehicleTypes[1]

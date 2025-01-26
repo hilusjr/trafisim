@@ -3,6 +3,8 @@ class Tile {
     this.index = index
     this.state = state
     this.stateSource = 'vehicle'
+    this.isSensor = false
+    this.lightsAssigned = ''
     this.element = document.createElement('div')
     this.element.classList.add('tile')
     this.element.textContent = ''

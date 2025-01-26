@@ -25,6 +25,7 @@
       rel="stylesheet"
     />
 
+    <script src="script/sensorsLogic.js" defer></script>
     <script src="script/trafficLightsLogic.js" defer></script>
     <script src="script/trafficRulesLogic.js" defer></script>
     <script src="script/TrafficLight.js" defer></script>
@@ -120,16 +121,6 @@
       <div class="close-panel"><i class="bx bx-x"></i></div>
       <span>Settings panel</span>
       <div class="add-button">ADD</div>
-      <span style="color: white; font-size: 1.2rem"></span>
-      <span style="color: white; font-size: 1.2rem"
-        >Only traffic lights work at this moment</span
-      >
-      <span style="color: white; font-size: 1.2rem"
-        >Traffic rules semi-working, probably not gonna do much more</span
-      >
-      <span style="color: white; font-size: 1.2rem"
-        >Yes, they can be combined</span
-      >
 
       <div class="settings-container lights-settings">
         <span class="settings-title"> Traffic lights</span>
@@ -194,6 +185,32 @@
         <div class="switch-rules-button settings-button">switch</div>
         <div class="remove-rules-button settings-button">remove rules</div>
       </div>
+
+      <div class="settings-container sensors-settings">
+        <span class="settings-title"> Traffic lights with sensors</span>
+        <span class="settings-description"
+          >Traffic lights controlled by sensors that monitor appearance of
+          vehicles. Once vehicle comes up request is sent.</span
+        >
+        <span class="settings-description"
+          >Hover mouse over intersection to show visual indicators of traffic
+          lights changing.</span
+        >
+        <span class="settings-subtitle"> Vehicle spawn rate</span>
+        <div class="sensors-container subsettings-container">
+          <div class="add-vehicle-icon settings-icon">
+            <img src="./img/-add-vehicle-icon.svg" />
+            <input class="sensors-input" type="number" />
+            <span>s</span>
+          </div>
+        </div>
+        <span class="settings-description"
+          >This timing is being set for vehicle spawn rate. Value cannot be
+          lower than 0.5 seconds.</span
+        >
+        <div class="set-sensors-button settings-button">set the timing</div>
+        <div class="remove-sensors-button settings-button">remove sensors</div>
+      </div>
     </div>
 
     <div class="add-selection-container">
@@ -213,7 +230,10 @@
             released to better control traffic flow on an intersection.
           </div>
         </div>
-        <div class="cameras-selection selection">
+        <div
+          class="cameras-selection selection"
+          title="Sorry I got sick before the deadline and wasn't able to finish this up."
+        >
           <div class="selection-title">Cameras</div>
           <div class="selection-description">
             Traffic lights controlled by cameras that monitor the amount of

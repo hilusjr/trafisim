@@ -128,10 +128,11 @@
 }
 
 .cameras-selection {
+  cursor: not-allowed;
   background-color: rgb(87, 100, 141);
 }
 .sensors-selection {
-  background-color: rgb(54, 95, 63);
+  background-image: url(../img/sensors-preview.webp);
 }
 
 .selection-title {
@@ -191,6 +192,17 @@
 }
 
 .light-time-input {
+  width: 4rem;
+  height: 3rem;
+  font-size: 2rem;
+  font-weight: 800;
+  box-sizing: border-box;
+  text-align: right;
+  padding: 0;
+  border: none;
+}
+
+.sensors-input {
   width: 4rem;
   height: 3rem;
   font-size: 2rem;

@@ -8,7 +8,6 @@ const tramIndicators = document.querySelectorAll('.tram-indicator')
 hudContainer.addEventListener('mouseover', () => {
   if (selected.includes('traffic-lights')) lightsHud.style.display = 'block'
   if (selected.includes('traffic-rules')) rulesHud.style.display = 'block'
-  console.log('hovered')
 })
 
 hudContainer.addEventListener('mouseleave', () => {

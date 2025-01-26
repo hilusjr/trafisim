@@ -53,8 +53,12 @@ switchButton.addEventListener('click', () => {
 })
 
 removeRulesButton.addEventListener('click', () => {
+  removeTrafficRules()
+})
+
+function removeTrafficRules() {
   trafficRulesApplied = false
   trafficRulesSwitched = false
   rulesSettings.style.display = 'none'
   selected = selected.filter(str => str !== 'traffic-rules')
-})
+}

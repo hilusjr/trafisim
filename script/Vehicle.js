@@ -86,6 +86,10 @@ class Vehicle {
       threeAhead,
     ] = this.getTiles(-6, 3)
 
+    if (selected.includes('sensors') && currentTile.isSensor) {
+      requestGreenLight(currentTile.lightsAssigned, nextTile)
+    }
+
     if (this.type === 'tram') {
       sixBehind?.setState(
         sixBehind?.index !== tramStopEW.index &&
